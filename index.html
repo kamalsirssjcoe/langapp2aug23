@@ -1,0 +1,82 @@
+<html>
+<head>
+	<title> Languages App by Kamal Sir </title>
+	<style>
+		* { font-size: 140%; font-family:Arial,Cambria; }
+		body { background-image: url("im1.jpg"); }
+		 input[type=radio]:after {
+	            color: #FF0000;
+        	}
+	</style>
+	<script>
+		function show()
+		{
+		event.preventDefault();
+		let name = document.getElementById("name");
+		let ans = document.getElementById("ans");
+		let python = document.getElementById("python");
+		let java = document.getElementById("java");
+		let js = document.getElementById("js");
+
+
+		if (name.value == "")
+		{
+			alert("u did not enter name");
+			name.focus();
+			ans.innerHTML = "";
+			return;
+		}
+
+		else if (name.value.trim() == "")
+		{
+			alert("name cannot be only spaces");
+			name.value = "";
+			ans.innerHTML = "";
+			return;
+		}
+		else if (! name.value.match(/^[A-Za-z ]+$/) )
+		{
+			alert("name shud contain only alpha");
+			name.value = "";
+			ans.innerHTML = "";
+			return;
+
+		}		
+
+		let languages = "";
+		if (python.checked)		languages = languages +  " Python ";
+		if (java.checked)		languages = languages +  " Java ";
+		if (js.checked)			languages = languages +  " JavaScript ";
+
+
+		if (languages == "")		languages = "kuch to karo";
+						
+		let msg = "name = " + name.value + " languages " + languages;
+		ans.innerHTML= msg;
+		
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1> Language App </h1>
+	<form onsubmit="show()">
+	<input type="text" placeholder="enter ur name " id="name" />
+	<br><br>
+	<label style="color:blue;"><input type="checkbox" id="python" /> Python </label>	
+	<label style="color:blue;"><input type="checkbox" id="java" /> Java </label>	
+	<label style="color:blue;"><input type="checkbox" id="js" /> JS </label>
+	<br><br>
+	<input type="Submit" />	
+	</form>
+	<h2 id="ans" /> 
+</center>
+</body>
+</html>
+
+
+
+
+
+
+
